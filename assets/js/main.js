@@ -170,26 +170,44 @@
   /**
    * Init swiper sliders
    */
-  function initSwiper() {
-    document.querySelectorAll(".init-swiper").forEach(function(swiperElement) {
-      let config = JSON.parse(
-        swiperElement.querySelector(".swiper-config").innerHTML.trim()
-      );
+  /**
+ * Init swiper sliders
+ */
+function initSwiper() {
+  document.querySelectorAll(".init-swiper").forEach(function (swiperElement) {
+    let config = JSON.parse(
+      swiperElement.querySelector(".swiper-config").innerHTML.trim()
+    );
 
-      // Initialize Swiper
-      let swiperInstance;
-      if (swiperElement.classList.contains("swiper-tab")) {
-        swiperInstance = initSwiperWithCustomPagination(swiperElement, config);
-      } else {
-        swiperInstance = new Swiper(swiperElement, config);
-      }
-      
-      swiperElement.querySelectorAll("video").forEach((video) => {
-        video.addEventListener("play", () => swiperInstance.autoplay.stop());
-        video.addEventListener("pause", () => swiperInstance.autoplay.start());
-      });
+    // Initialize Swiper
+    let swiperInstance;
+    if (swiperElement.classList.contains("swiper-tab")) {
+      swiperInstance = initSwiperWithCustomPagination(swiperElement, config);
+    } else {
+      swiperInstance = new Swiper(swiperElement, config);
+    }
+
+    // Handle autoplay pause when video plays
+    swiperElement.querySelectorAll("video").forEach((video) => {
+      video.addEventListener("play", () => swiperInstance.autoplay.stop());
+      video.addEventListener("pause", () => swiperInstance.autoplay.start());
     });
-  }
+
+    // Play video when its slide becomes active, pause others
+    swiperInstance.on("slideChangeTransitionEnd", function () {
+      // Pause all videos
+      swiperElement.querySelectorAll("video").forEach((video) => {
+        video.pause();
+      });
+
+      // Play the video in the active slide
+      let activeVideo = swiperElement.querySelector(".swiper-slide-active video");
+      if (activeVideo) {
+        activeVideo.play();
+      }
+    });
+  });
+}
 
   window.addEventListener("load", initSwiper);
 
@@ -206,31 +224,4 @@
             top: section.offsetTop - parseInt(scrollMarginTop),
             behavior: 'smooth'
           });
-        }, 100);
-      }
-    }
-  });
-
-  /**
-   * Navmenu Scrollspy
-   */
-  let navmenulinks = document.querySelectorAll('.navmenu a');
-
-  function navmenuScrollspy() {
-    navmenulinks.forEach(navmenulink => {
-      if (!navmenulink.hash) return;
-      let section = document.querySelector(navmenulink.hash);
-      if (!section) return;
-      let position = window.scrollY + 200;
-      if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
-        document.querySelectorAll('.navmenu a.active').forEach(link => link.classList.remove('active'));
-        navmenulink.classList.add('active');
-      } else {
-        navmenulink.classList.remove('active');
-      }
-    })
-  }
-  window.addEventListener('load', navmenuScrollspy);
-  document.addEventListener('scroll', navmenuScrollspy);
-
-})();
+        }, 1

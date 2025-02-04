@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>MECH438 Human Robot Interface - Portfolio Details</title>
+  <title>10.017 Technological World - Portfolio Details</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -66,7 +66,7 @@
             <li class="current">Portfolio Details</li>
           </ol>
         </nav>
-        <h1>MECH438 Human Robot Interface</h1>
+        <h1>10.017 Technological World</h1>
       </div>
     </div><!-- End Page Title -->
 
@@ -99,15 +99,17 @@
           <div class="swiper-wrapper align-items-center">
 
             <div class="swiper-slide">
-              <img src="assets/img/portfolio/HRI-project.png" alt="">
+              <img src="assets/img/portfolio/TW-project.jpg" alt="">
             </div>
 
             <div class="swiper-slide">
-              <img src="assets/img/portfolio/HRI-photo1.jpg" alt="">
+              <img src="assets/img/portfolio/tw-prototype.jpg" alt="">
             </div>
 
             <div class="swiper-slide">
-              <img src="assets/img/portfolio/HRI-photo2.jpg" alt="">
+              <video loop playsinline>
+              <source src="assets/img/portfolio/TW-project vid.mp4" type="video/mp4">
+              </video>
             </div>
 
           </div>
@@ -122,32 +124,27 @@
             <div class="portfolio-description">
               <h2>Project Overview</h2>
               <p>
-                Traditional gaming experiences often lack the real-world tactile interaction that can enhance user immersion. Integrating force feedback into gaming environments presents an opportunity to improve engagement, realism, and even educational or rehabilitative applications. Additionally, understanding the trade-off between speed and accuracy in gameplay can provide valuable insights into human-computer interaction dynamics.
+                High-altitude work environments pose significant risks due to uncontrolled falls and heavy object drops. Traditional braking mechanisms suffer from wear and tear, making them less reliable over time. This project developed an eddy current braking system that leverages electromagnetic forces to safely decelerate objects without physical contact, enhancing safety and durability.
               </p>
 
               <h2>Solution</h2>
               <p>
-                Our team developed a maze game with force feedback, where players navigate a virtual maze while experiencing haptic resistance upon hitting obstacles. The system includes:
-                <ul>
-                  <li>A haptic development device controlled via STM32, generating force feedback perpendicular to maze walls.</li>
-                  <li>A custom physics model that calculates force magnitude and direction based on obstacle proximity.</li>
-                  <li>A Python-based user interface, designed using OpenCV, displaying only the end-effector for a streamlined experience.</li>
-                  <li>A data-driven analysis of speed vs. accuracy, using Spearman’s Rank Correlation to determine behavioral trends in gameplay.</li>
-                </ul>
+                Our system utilizes Faraday’s Law and Lenz’s Law to generate opposing eddy currents in a spinning aluminum disk, creating a braking force. As the disk moves through a ceramic magnet’s field, eddy currents induce resistance, slowing down motion efficiently.
               </p>
 
               <h2>Design Considerations</h2>
               <p>
                 <ul>
-                  <li><strong>Realistic Force Simulation:</strong> The haptic feedback system was calibrated using stiffness and damping adjustments to mimic real-world interactions.</li>
-                  <li><strong>User Experience Optimization:</strong> A practice round was included before testing to ensure fair results.</li>
-                  <li><strong>Quantitative Evaluation:</strong> Gameplay data was analyzed statistically to validate the correlation between speed and accuracy.</li>
+                  <li><strong>Material Selection:</strong> Used an aluminum disk for optimal conductivity and a strontium-iron oxide magnet for strong, stable magnetic fields.</li>
+                  <li><strong>Braking Efficiency:</strong> Optimized magnet placement and disk thickness to maximize deceleration.</li>
+                  <li><strong>Performance Validation:</strong>  Drop tests confirmed a 33% reduction in acceleration, demonstrating effective braking.</li>
+                  <li><strong>Sustainability:</strong> Conducted Life Cycle Analysis (LCA) to assess CO₂ emissions and ensure environmentally responsible material choices.</li>
                 </ul>
               </p>
-
+               
               <h2>Impact</h2>
               <p>
-                This force feedback-enhanced maze game bridges the gap between virtual gaming and real-world interaction, offering a more immersive and engaging experience. Beyond entertainment, the technology has potential applications in rehabilitation and cognitive training, providing an interactive and adaptive platform for motor skill development.
+                This low-maintenance, contactless braking solution enhances safety in high-altitude workplaces and industrial applications, providing a durable and efficient alternative to traditional braking systems.
               </p>
 
             </div>
@@ -158,8 +155,7 @@
               <h3>Project information</h3>
               <ul>
                 <li><strong>Category</strong> Physical Prototyping</li>
-                <li><strong>Location</strong> Pohang University of Science and Technology</li>
-                <li><strong>Project date</strong> September - August 2023</li>
+                <li><strong>Project date</strong> January - April 2022</li>
               </ul>
             </div>
           </div>
@@ -204,4 +200,17 @@
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/typed.js/typed.umd.js"></scr
+  <script src="assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

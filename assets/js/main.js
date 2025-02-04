@@ -176,11 +176,18 @@
         swiperElement.querySelector(".swiper-config").innerHTML.trim()
       );
 
+      // Initialize Swiper
+      let swiperInstance;
       if (swiperElement.classList.contains("swiper-tab")) {
-        initSwiperWithCustomPagination(swiperElement, config);
+        swiperInstance = initSwiperWithCustomPagination(swiperElement, config);
       } else {
-        new Swiper(swiperElement, config);
+        swiperInstance = new Swiper(swiperElement, config);
       }
+      
+      swiperElement.querySelectorAll("video").forEach((video) => {
+        video.addEventListener("play", () => swiperInstance.autoplay.stop());
+        video.addEventListener("pause", () => swiperInstance.autoplay.start());
+      });
     });
   }
 

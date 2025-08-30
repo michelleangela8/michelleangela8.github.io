@@ -187,13 +187,22 @@ function initSwiper() {
       swiperInstance = new Swiper(swiperElement, config);
     }
 
-    // Handle autoplay pause when video plays
+    // Handle autoplay pause/resume with videos
     swiperElement.querySelectorAll("video").forEach((video) => {
+      video.setAttribute("controls", "true");
       video.addEventListener("play", () => swiperInstance.autoplay.stop());
-      video.addEventListener("pause", () => swiperInstance.autoplay.start());
+      video.addEventListener("ended", () => swiperInstance.autoplay.start());
     });
 
-    // Play video when its slide becomes active, pause others
+    // Prevent slide change if a video is playing
+    swiperInstance.on("slideChangeTransitionStart", function () {
+      let activeVideo = swiperElement.querySelector(".swiper-slide-active video");
+      if (activeVideo && !activeVideo.paused) {
+        swiperInstance.slideTo(swiperInstance.previousIndex);
+      }
+    });
+    
+    // Pause all videos,, then play video in active slide
     swiperInstance.on("slideChangeTransitionEnd", function () {
       // Pause all videos
       swiperElement.querySelectorAll("video").forEach((video) => {

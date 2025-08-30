@@ -1423,8 +1423,16 @@ section,
 }
 
 /*--------------------------------------------------------------
-# Starter Section Section
+# Custom Fixes
 --------------------------------------------------------------*/
-.starter-section {
-  /* Add your styles here */
+.btn-primary {
+  font-family: var(--heading-font); /* Raleway */
+  background-color: #0762ba;
+  border-color: #0762ba;
 }
+
+.btn-primary:hover {
+  background-color: #054b8a; /* darker shade on hover */
+  border-color: #054b8a;
+}
+

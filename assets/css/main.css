@@ -601,6 +601,18 @@ section,
   font-size: 24px;
 }
 
+/* Custom About photo sizing */
+.about .profile-photo {
+  width: 100%;
+  max-width: 600px; /* adjust as needed */
+}
+
+@media (min-width: 992px) {
+  .about .profile-photo {
+    max-width: 50vw; /* half of screen width on desktop */
+  }
+}
+
 .about .content ul {
   list-style: none;
   padding: 0;
